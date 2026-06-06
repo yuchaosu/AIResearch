@@ -1,0 +1,46 @@
+# autoPaper configuration
+
+# Where everything is stored
+data_dir: data
+pdf_dir: data/pdfs
+summary_dir: data/summaries
+db_path: data/papers.db
+
+# Free metadata APIs (no proxy, no key needed)
+openalex_mailto: "yuchaosu981@gmail.com"   # OpenAlex "polite pool" -> faster/nicer
+
+# PDF downloading. ACM & IEEE forbid bulk/systematic downloading; these limits
+# keep usage polite so NCSU's institutional access is never put at risk.
+download:
+  enabled: true
+  delay_seconds: 20          # minimum seconds between PDF downloads
+  jitter_seconds: 10         # plus a random 0..jitter seconds
+  max_per_run: 25            # hard cap on PDFs downloaded in a single run
+  timeout: 60
+  user_agent: "autoPaper/0.1 (academic research; mailto:yuchaosu981@gmail.com)"
+
+# Summarizer: shells out to Claude Code headless mode (uses your subscription,
+# NOT an API key). Make sure `claude` is logged in: run `claude` once interactively.
+summarizer:
+  command: "claude"
+  model: "sonnet"            # sonnet (fast/cheap) or opus (best). Alias or full id.
+  max_chars: 60000           # truncate extracted PDF text before sending
+  timeout: 300
+
+# Known DBLP venue stream keys for common architecture / HPC venues.
+# Anything not listed here is auto-resolved via the DBLP venue search API.
+venue_keys:
+  isca:   conf/isca
+  micro:  conf/micro
+  hpca:   conf/hpca
+  asplos: conf/asplos
+  ics:    conf/ics
+  sc:     conf/sc
+  ppopp:  conf/ppopp
+  pact:   conf/IEEEpact
+  hpdc:   conf/hpdc
+  ipdps:  conf/ipps
+  cluster: conf/cluster
+  cgo:    conf/cgo
+  pldi:   conf/pldi
+  dac:    conf/dac

@@ -1,0 +1,10 @@
+# Generated output
+data/
+*.pdf
+*.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
