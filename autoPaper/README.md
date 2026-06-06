@@ -21,15 +21,13 @@ venue + year(s) + keywords
 
 ## Access / proxy
 
-This tool is meant to run on a machine **on the NCSU network** (campus Wi-Fi,
-wired, or NCSU VPN). ACM Digital Library and IEEE Xplore authenticate by **IP
-address**, so on-campus you get full-text access automatically — no EZProxy, no
-login, no SSO. (Off-campus you would need NCSU's `*.prox.lib.ncsu.edu` EZProxy
-with Unity-ID SSO, which this tool does not automate.)
+This tool is meant to run on a machine **on the Proxy network** (campus Wi-Fi,
+wired, or institution VPN). ACM Digital Library and IEEE Xplore authenticate by **IP
+address**.
 
 ## ⚠️ Respect publisher terms
 
-ACM and IEEE **prohibit systematic / bulk downloading**. Abuse can get NCSU's
+ACM and IEEE **prohibit systematic / bulk downloading**. Abuse can get
 institutional access revoked for everyone. autoPaper enforces:
 - keyword filtering *before* any download (you only fetch what you actually want)
 - a polite delay between downloads (default 20s + jitter)
